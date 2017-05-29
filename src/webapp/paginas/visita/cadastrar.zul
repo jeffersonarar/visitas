@@ -1,0 +1,17 @@
+
+<?page title="Cadastro de reserva" contentType="text/html;charset=UTF-8"?>
+<?link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link href="/css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href="/less/index.css.dsp" rel="stylesheet" type="text/css"?>
+<zk>
+    <div self="@define(content)"
+        apply="org.zkoss.bind.BindComposer"
+       
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.ReservaViewModel')"
+		validationMessages="@id('vmsgs')"
+        form="@id('fx') @load(vm.selectedEntity) @save(vm.selectedEntity, before='salvar')">
+
+	<include src="frmReserva.zul"/>
+
+	</div>
+</zk>

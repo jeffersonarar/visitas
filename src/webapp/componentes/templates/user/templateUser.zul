@@ -1,0 +1,31 @@
+<zk xmlns:n="native">
+<script type="text/javascript" src="/js/jquery.maskedinput-1.3.js" />
+	<div if="${not sessionScope.userCredential.anonymous}">
+
+		<include src="/componentes/navbar.zul" />
+		<hlayout id="main" spacing="0">
+			<include src="/componentes/templates/user/sidebar.zul" />
+			<vlayout spacing="0" hflex="1">
+				<include src="/componentes/breadcrumbs.zul" />
+				<div class="center" xmlns:w='client'
+					self="@insert(content)" height="100%" width="100%">
+
+				</div>
+			</vlayout>
+		</hlayout>
+	</div>
+	<div if="${sessionScope.userCredential.anonymous}">
+		Redirect to login page.....
+		
+		<![CDATA[Executions.sendRedirect("/login.zul");]]>
+		 
+	</div>
+	<!-- Include the jQuery plugins to draw the chart -->
+	<script src="js/excanvas.min.js" if="${zk.ie lt 9}" />
+	<script src="js/jquery.easy-pie-chart.min.js"></script>
+	<script src="js/jquery.flot.min.js" />
+	<script src="js/jquery.flot.pie.js" />
+	<script src="js/jquery.sparkline.min.js"></script>
+
+
+</zk>

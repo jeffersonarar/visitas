@@ -1,0 +1,137 @@
+<zk>
+	<div self="@define(content)" align="center"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.VisitaViewModel')"
+		validationMessages="@id('vmsgs')"
+		form="@id('fx') @load(vm.entity) @save(vm.entity, before='salvar')">
+		<div xmlns:n="native">
+		<n:h1>Sistema de visitas <label class="label label-danger">New</label></n:h1>
+			<div class="col-sm-3">
+
+			</div>
+			<div class="col-sm-3">
+				<n:h4>
+					<label style="color: red" value="*" />
+					Data inicio:
+				</n:h4>
+
+				<datebox id="dataInicio" width="307px"
+					value="@bind(vm.entity.data_inicio)" tabindex="1" />
+				<n:h4>Hora inicio:</n:h4>
+				<listbox model="@load(vm.horasList)" tabindex="2"
+					class="form-control" mold="select"
+					selectedItem="@save(vm.horasinicioselecionada)">
+					<template name="model">
+						<listitem label="@load(each.descricao)" />
+					</template>
+
+				</listbox>
+				<n:h4>Hora fim:</n:h4>
+				<listbox model="@load(vm.horasList)" tabindex="3"
+					class="form-control" mold="select"
+					selectedItem="@save(vm.horasfimselecionada)">
+					<template name="model">
+						<listitem label="@load(each.descricao)" />
+					</template>
+				</listbox>
+								<n:h4>
+					<label style="color: red" value="*" />
+					Local:
+				</n:h4>
+					<div class="input-group input-group-lg">
+				<combobox onChange="" tabindex="4"
+					constraint="no empty: Campo obrigatório"
+					model="@load(vm.localList)" width="307px"
+					selectedItem="@save(vm.localSelecionado)">
+					<template name="model">
+						<comboitem label="@load(each.nome)" />
+					</template>
+				</combobox>
+				</div>
+				<n:h4>
+					<label style="color: red" value="*" />
+					Evento:
+				</n:h4>
+
+				<combobox onChange=""  tabindex="5"
+					constraint="no empty: Campo obrigatório"
+					model="@load(vm.eventoList)" width="307px"
+					selectedItem="@save(vm.eventoSelecionado)">
+					<template name="model">
+						<comboitem label="@load(each.nome)" />
+					</template>
+				</combobox>
+
+				<n:h4>
+					<label style="color: red" value="*" />
+					Qtd de convidados:
+				</n:h4>
+				<intbox value="@bind(fx.qtd_convidados)" 
+					class="form-control" width="307px" tabindex="6" />
+				
+			</div>
+			<div class="col-sm-3">
+
+				<n:h4>
+					<label style="color: red" value="*" />
+					Posto:
+				</n:h4>
+
+
+				<combobox onChange="" class="dropdown" width="307px" tabindex="7"
+					constraint="no empty: Campo obrigatório"
+					model="@load(vm.postoList)"
+					selectedItem="@save(vm.postoSelecionado)">
+					<template name="model">
+						<comboitem label="@load(each.nome)" />
+					</template>
+				</combobox>
+
+				<n:h4>
+					<label style="color: red" value="*" />
+					Solicitante:
+				</n:h4>
+
+				<textbox value="@bind(fx.solicitante)" width="307px"
+					class="form-control" tabindex="8" />
+
+				<n:h4>Saram:</n:h4>
+				<intbox value="@bind(fx.saram)" width="307px"
+					class="form-control" tabindex="9" />
+<n:h4>
+					<label style="color: red" value="*" />
+					Email:
+				</n:h4>
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">@</span>
+					<textbox value="@bind(fx.email)" placeholder="email"
+						class="form-control" tabindex="10" />
+
+				</div>
+				<n:h4>Contato:</n:h4>
+
+				<textbox value="@bind(vm.entity.contato)"
+					class="form-control" tabindex="11" />
+
+				<n:h4>Observações:</n:h4>
+
+				<textbox value="@bind(vm.entity.observacoes)"
+					class="form-control" tabindex="12" />
+				<separator></separator>
+				<button label="Voltar" sclass="btn-primary"
+					onClick="@command('closeWindows')" width="100px" height="30px" />
+
+				<button label="Salvar" sclass="btn-primary"
+					onClick="@command('salvar')" width="100px" height="30px" />
+
+
+
+
+			</div>
+
+			<div class="col-sm-3">
+
+			</div>
+		</div>
+	</div>
+</zk>

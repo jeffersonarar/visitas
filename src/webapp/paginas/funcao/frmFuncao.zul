@@ -1,0 +1,34 @@
+
+<zk>
+    <div self="@define(content)" align="center"
+        apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.FuncaoViewModel')"
+		validationMessages="@id('vmsgs')"
+        form="@id('fx') @load(vm.entity) @save(vm.entity, before='salvar')">
+       <div xmlns:n="native">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+
+			<n:h4>Nome:</n:h4>
+			<div class="red">*</div>
+				<textbox id="fldName" class="form-control"
+					value="@bind(fx.nome)" focus="true"
+					style="color:black !important;" />
+			
+		
+			
+			<n:h4>Descrição:</n:h4>
+			<textbox id="fldDescription" class="form-control" rows="6"
+				value="@bind(fx.descricao)"  tabindex="11" />
+				
+			<separator  ></separator>
+			<div class="btn btn-success">
+				<button label="Salvar" sclass="btn-success"
+					onClick="@command('salvar')" />
+			</div>
+		</div>
+		
+		<div class="col-sm-3"></div>
+	</div>
+	</div>
+</zk>

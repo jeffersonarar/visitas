@@ -1,0 +1,73 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/componentes/templates/master/templateMaster.zul"?>
+<?page title="Lista de Funcao" contentType="text/html;charset=UTF-8"?>
+<?link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link href="/css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href="/less/index.css.dsp" rel="stylesheet" type="text/css"?>
+<zk>
+<div self="@define(content)" apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('br.ueg.unucet.gymsys.View.FuncaoViewModel')" align="center">
+    
+	<div xmlns:n="native">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-10">
+			<hbox sclass="searchform">
+				<div class="input-group">
+					<textbox value="@bind(vm.keyword)"
+						class="form-control" />
+				</div>
+				<div class="btn btn-primary btn-md">
+					<button label="Pesquisar" image="" sclass="btn-primary"
+						onClick="@command('listar')" />
+				</div>
+			</hbox>
+
+			<listbox id="lb" mold="paging" model="@bind(vm.funcaoList)"
+				emptyMessage="Nenhuma função selecionada."
+				style="margin-top:10px" selectedItem="@bind(vm.selectedEntity)"
+				pageSize="8" xmlns:w="http://www.zkoss.org/2005/zk/client"
+				checkmark="true">
+
+
+				<listhead>
+					<listheader label="Nome" 
+						sort="auto(nome)" />
+					<listheader label="Descricao" 
+						sort="auto(descricao)" />
+					<listheader label="Status" 
+						sort="auto(ativo)" />
+				</listhead>
+				<template name="model">
+
+
+					<listitem>
+						<listcell label="@bind(each.nome)"
+							sclass="highlightcell">
+						</listcell>
+						<listcell label="@bind(each.descricao)"></listcell>
+						<listcell label="@bind(each.ativo)"></listcell>
+					</listitem>
+
+				</template>
+			</listbox>
+
+			<auxhead>
+				<auxheader colspan="4" class="topic">
+					<div class="btn btn-warning btn-md">
+						<button label="Alterar"
+							onClick="@command('telaAlterar')" />
+					</div>
+					<space></space>
+					<div class="btn btn-danger btn-md">
+						<button label="Deletar"
+							onClick="@command('deletar')" />
+					</div>
+					<space></space>
+
+				</auxheader>
+			</auxhead>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+</div>
+</zk>
+

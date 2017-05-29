@@ -1,0 +1,148 @@
+
+<zk>
+    <div self="@define(content)" align="center"
+        apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.ReservaViewModel')"
+		validationMessages="@id('vmsgs')"
+        form="@id('fx') @load(vm.entity) @save(vm.entity, before='salvar')">
+        <div> 
+         <grid >
+         	<columns>
+         		<column align="center"></column>
+         	</columns>
+         	<rows>
+               <row>
+        		<vlayout>  Reserva </vlayout>
+        		</row>
+            </rows>
+        	</grid>
+        </div>
+
+
+		<grid>
+           	<columns>
+        		<column width="120px"/>
+        		<column  width="420px"/>
+        	</columns>
+            <rows>
+            <row>
+                <cell sclass="row-title">
+			             <label style="color: red" value="*" />
+			             Data inicio:
+			           </cell>
+                 <hbox>
+				  <datebox id="dataInicio" value="@bind(vm.entity.data_inicio)" />
+				</hbox>
+				</row>
+				<row>
+			            <cell sclass="row-title">   <label style="color: red" value="*" /> Posto:</cell>
+			            <cell>
+			            	<combobox onChange=""  constraint="no empty: Campo obrigatório"  model="@load(vm.postoList)" 
+			                        width="75%"
+			                        selectedItem="@save(vm.entity.postoSelecionado)">
+			                        <template name="model" >
+			                            <comboitem label="@load(each.nome)"/>
+			                        </template>
+			            	</combobox>
+			            </cell>
+				</row> 
+					
+                 <row>
+                      <cell sclass="row-title">
+			             <label style="color: red" value="*" />
+			             Solicitante:
+			           </cell>
+				     <textbox value="@bind(vm.entity.solicitante)"  width="307px" tabindex="4"/>
+				</row>
+                 
+                 <row>
+                      <cell sclass="row-title">
+			             <label style="color: red" value="*" />
+			            Saram:</cell>
+                    <intbox value="@bind(vm.entity.saram)"  width="307px" tabindex="4"/>
+                    
+
+				</row>
+						<row>
+			            <cell sclass="row-title">   <label style="color: red" value="*" /> Local:</cell>
+			            <cell>
+			            	<combobox onChange=""  constraint="no empty: Campo obrigatório"  model="@load(vm.localList)" 
+			                        width="75%"
+			                        selectedItem="@save(vm.entity.localSelecionado)">
+			                        <template name="model" >
+			                            <comboitem label="@load(each.nome)"/>
+			                        </template>
+			            	</combobox>
+			            </cell>
+				</row> 
+						<row>
+			            <cell sclass="row-title">   <label style="color: red" value="*" /> Evento:</cell>
+			            <cell>
+			            	<combobox onChange=""  constraint="no empty: Campo obrigatório"  model="@load(vm.eventoList)" 
+			                        width="75%"
+			                        selectedItem="@save(vm.entity.eventoSelecionado)">
+			                        <template name="model" >
+			                            <comboitem label="@load(each.nome)"/>
+			                        </template>
+			            	</combobox>
+			            </cell>
+				</row> 
+                 <row>
+                      <cell sclass="row-title">
+			             <label style="color: red" value="*" />
+			            Qtd de convidados:</cell>
+                    <intbox value="@bind(vm.entity.qtd_convidados)"  width="307px" tabindex="4"/>
+                    
+
+				</row>
+                 
+                <row>
+                       <cell sclass="row-title">
+			             <label style="color: red" value="*" />
+			             Email:</cell>
+                    <textbox value="@bind(vm.entity.email)"  width="307px" tabindex="8"/>
+                    
+                </row>
+                 <row>
+                       <cell sclass="row-title">
+			             <label style="color: red" value="*" />
+			             Contato:</cell>
+			             
+			         <cell sclass="row-title">
+                    <textbox value="@bind(vm.entity.contato)"  width="100px" tabindex="10"/>
+                    
+                                           
+			             <label style="color: red" value=" *" />
+			            Observações:
+                    <textbox value="@bind(vm.entity.observacoes)"  width="150px" tabindex="10"/>
+                 	</cell>
+                 </row>                 
+						<row>
+	                     <cell sclass="row-title">  </cell>
+	                      <hlayout>
+	                        <label style="color: red; font-size:8pt"  value="* Campos obrigatórios" /> 
+	                    </hlayout>
+	            </row>
+                 
+                <row>
+                <cell sclass="row-title">
+                </cell> 
+                <cell sclass="row-title"> 
+                	<label value=" " />
+                    <button label="Voltar" sclass="btn-danger" onClick="@command('closeWindows')"
+                            width="100px" height="30px" /> 
+                    <label value=" " />
+    
+                    <label value=" " /> 
+                    <button label="Salvar" sclass="btn-danger" onClick="@command('salvar')"
+                             width="100px" height="30px" />
+                    <button label="Cancelar" sclass="btn-danger" onClick="@command('salvar')"
+                             width="100px" height="30px" />
+                    <button label="Confirmar" sclass="btn-danger" onClick="@command('salvar')"
+                             width="100px" height="30px" />
+                   </cell>
+                </row>
+       </rows>
+   </grid> 
+</div> 
+</zk>

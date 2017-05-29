@@ -1,0 +1,13 @@
+<zk>
+	<div sclass="navbar" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.NavbarViewModel')">
+		<!-- Brand Logo -->
+		<a label="Sistema de agendamento de visitas" sclass="pull-left navbar-brand"
+			/> <!-- image="/imagens/logo.png"   -->
+
+		<!-- Navbar -->
+
+
+
+	</div>
+</zk>

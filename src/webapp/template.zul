@@ -1,0 +1,22 @@
+<zk>
+	<include src="/styles/style.zul" />
+	<borderlayout hflex="1" vflex="1">
+		<north class="menu" autoscroll="true" border="none">
+			<div class="container">
+				<div class="top" height="40px">
+					<vlayout focus="true" sclass="top" height="100%" style="background: #FFFFFF;"></vlayout>
+				</div>
+				<div class="banner" height="60px" style="background: #DCDCDC;">
+					<include src="/banner.zul" height="100%"/>
+				</div>
+				<div class="menu" style="background: black;">
+					<include src="/menu.zul" height="100%"/>
+				</div>
+			</div>
+		</north>
+		<center id="mainContent" autoscroll="true" border="none" self="@insert(content)"> </center>
+		<south border="none" class="footer" size="15px" autoscroll="true" style="">
+			<include src="/footer.zul" />
+		</south>
+	</borderlayout>
+</zk>

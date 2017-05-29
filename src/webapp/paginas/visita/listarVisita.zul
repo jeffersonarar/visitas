@@ -1,0 +1,49 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/componentes/templates/master/templateMaster.zul"?>
+<?page title="Lista de reservas" contentType="text/html;charset=UTF-8"?>
+<?link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link href="/css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href="/less/index.css.dsp" rel="stylesheet" type="text/css"?>
+<zk>
+	<div self="@define(content)" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('br.ueg.unucet.gymsys.View.VisitaViewModel')"
+		align="center">
+		<hbox align="center">
+			Pesquisar visitas agendadas
+			<checkbox checked="@bind(vm.confirmado)"/>
+			<button label="pesquisar"  sclass="btn-primary"
+				onClick="@command('listar')" />
+		</hbox>
+		<listbox model="@bind(vm.listVisita)"
+			emptyMessage="Nenhuma reserva ." width="1000px"
+			selectedItem="@bind(vm.selectedEntity)" style="margin-top:10px"
+			mold="paging" pageSize="10">
+			<listhead>
+
+				<listheader label="Agendado por" align="center"
+					sort="auto(agendadopor)" />
+				<listheader label="funcao" align="center"
+					sort="auto(funcao)" />
+				<listheader label="empresa" align="center"
+					sort="auto(empresa)" />
+					
+		
+				<listheader label="Ações" align="center" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label=" @bind(each.agendadopor)"></listcell>
+					<listcell label="@bind(each.funcao.nome)"></listcell>
+					<listcell label="@bind(each.data_inicio)"></listcell>
+		
+					<listcell>
+					 <button label="Cancelar Visita"  sclass="btn-danger" 
+							onClick="@command('telaDetalhar') @global-command('refresh')" />
+						<button label="Reagendar"  sclass="btn-danger" 
+							onClick="@command('telaReagendar') @global-command('refresh')" />					
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+	</div>
+</zk>
+

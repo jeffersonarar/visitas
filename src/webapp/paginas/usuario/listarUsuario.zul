@@ -1,0 +1,76 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/componentes/templates/master/templateMaster.zul"?>
+<?page title="Lista de usuarios" contentType="text/html;charset=UTF-8"?>
+<?link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link href="/css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href="/less/index.css.dsp" rel="stylesheet" type="text/css"?
+<zk>
+<div self="@define(content)" apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('br.ueg.unucet.gymsys.View.UsuarioViewModel')" align="center">
+    
+    <hbox align="center">
+        <textbox value="@bind(vm.keyword)" />
+        <button label="pesquisar" image="/img/lente.jpg" onClick="@command('listar')" />
+         <checkbox checked="@bind(vm.displayEdit)"
+             label="Exibor apenas Ativos">
+         </checkbox>
+    </hbox>
+    
+    <listbox model="@bind(vm.usuarioList)" emptyMessage="Nenhum Usuário Selecionado." width="800px" 
+    selectedItem="@bind(vm.selectedEntity)" style="margin-top:10px" mold="paging" pageSize="10">  
+    	<auxhead>
+        <auxheader colspan="3" class="topic"> 
+              <button label="Alterar" onClick="@command('telaAlterar', idusuario={each.idusuario})" />
+              <button image="/img/delete.png"  onClick="@command('perguntarDesativar')" />   
+        
+              <label value="Para alterar ou desativar selecione um item" style="color: blue; font-size:8pt"/>
+        </auxheader> 
+        </auxhead>
+        <listhead>
+            <listheader label="Nome" align="center" sort="auto(nome)" />
+            <listheader label="TipoUsuario" align="center" sort="auto(tipousuario)" />
+            <listheader label="Status" align="center" sort="auto(ativo)" />
+        
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="@bind(each.nome)"></listcell>
+                <listcell label="@bind(each.tipousuario eq '0'?'Aluno':'Funcionario')"></listcell>
+                <listcell label="@bind(each.ativo eq 'true'?'Ativo':'Desativo')"></listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <window autag="true" popup="true" visible="false" id="windowDesativar"  border="normal" width="300px"  position="center,center" 
+ 			action="show: slideDown;hide: slideUp" >
+	       <div>
+	        <div> 
+	         <grid>
+	         	<columns>
+	         		<column align="center"></column>
+	         	</columns>
+	         	<rows>
+	               <row>
+	        		<vlayout> Deseja excluir? </vlayout>
+	        		</row>
+	            </rows>
+	        	</grid>
+	        </div>
+
+	        <grid>
+	        	<columns>
+	        		<column align="center"></column>
+	        		<column align="left"></column>
+	        	</columns>
+	            <rows>
+	    
+	                <row>    
+	          	                 <button label="SIM" onClick="@command('desativar')" width="100px" height="30px" />
+	                  <button label="NÃO" onClick="@command('cancelar')" width="100px" height="30px" />
+	                </row>
+	            </rows>
+	        </grid>
+	    </div>
+	</window>  
+</div>
+	
+</zk>
+

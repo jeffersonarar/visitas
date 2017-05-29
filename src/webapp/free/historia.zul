@@ -1,0 +1,32 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/templateFree.zul"?>
+<zk>
+	<window self="@define(content)"
+	 apply="org.zkoss.bind.BindComposer"
+    	viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.LoginViewModel')"
+		>
+     <div align="center">
+    	<zk xmlns:h="xhtml" xmlns:zk="zk">
+			<html>
+			  <head>
+			  </head>
+			  <body>
+			  <div>
+			   	<h2><span class="label label-primary">Nossa História</span></h2>
+			   	<br/>
+			  </div>
+			  <div>
+			  <p>Este projeto surgiu com a intenção de criar um sistema que possa auxiliar os usuários de academia na sua prática de exercício.</p>
+			  </div>  
+			  <div>
+			   <img src="../../com.gymsys/img/6.jpeg" alt="..."></img>
+			  </div>  
+			  <div>
+			  <br/>
+			  <p>No entanto, seu principal objetivo mesmo é fazer este pequeno e humilde grupo passar nesta bendita matéria.</p>
+			  </div>  
+			  </body>
+			</html>
+		</zk>
+	</div>
+	</window>
+</zk>

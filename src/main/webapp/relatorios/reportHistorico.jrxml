@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d49e1aa-4c4b-4692-8e0d-b199016755ea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<field name="nome" class="java.lang.String"/>
+	<field name="altura" class="java.lang.Double"/>
+	<field name="peso" class="java.lang.Double"/>
+	<field name="cintura" class="java.lang.Double"/>
+	<field name="antebraco" class="java.lang.Double"/>
+	<field name="torax" class="java.lang.Double"/>
+	<field name="abdomen" class="java.lang.Double"/>
+	<field name="pescoco" class="java.lang.Double"/>
+	<field name="coxa" class="java.lang.Double"/>
+	<field name="ombro" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<image>
+				<reportElement x="433" y="0" width="120" height="64" uuid="3e1070a9-abfe-4022-a9e5-0e9040bcc42e"/>
+				<imageExpression><![CDATA["C:\\logo 1.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="162" y="34" width="238" height="49" uuid="7f748a96-948e-412d-9d01-7d8d6d33df76"/>
+				<textElement>
+					<font fontName="Times New Roman" size="24"/>
+				</textElement>
+				<text><![CDATA[Histórico das Medidas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="83" width="44" height="20" uuid="80db3efa-d2b4-4e0b-89be-7d637a4424a2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Aluno: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="83" width="100" height="20" uuid="f1b55f11-809c-46dc-bec6-06871ef1e722"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="6" y="7" width="78" height="18" forecolor="#000000" uuid="572a95e6-3ffb-40da-a20e-946f13ff528a"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="84" y="7" width="50" height="18" forecolor="#000000" uuid="f8a0ada4-c058-4990-a45f-3cc44c77058e"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Altura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="135" y="7" width="40" height="18" forecolor="#000000" uuid="321b4324-da7d-438b-8efb-9242d732d24d"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Peso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="178" y="7" width="50" height="18" forecolor="#000000" uuid="891e60e7-54c1-4a20-8352-86554ca06260"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Cintura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="234" y="7" width="66" height="18" forecolor="#000000" uuid="37140027-5c7c-469d-9f1c-8d05d3deefa9"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Antebraco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="7" width="50" height="18" forecolor="#000000" uuid="2aa341e5-4256-454a-ad80-511fce57ed29"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Torax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="350" y="7" width="68" height="18" forecolor="#000000" uuid="3099951b-d725-4e53-a853-e9e9f837e483"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Abdomen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="418" y="8" width="50" height="18" forecolor="#000000" uuid="6eadedbd-832d-467d-8583-c11640fe536e"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Pescoco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="468" y="8" width="37" height="18" forecolor="#000000" uuid="8db55cd2-9c4b-4fa0-836e-e7b06b096690"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Coxa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="505" y="8" width="50" height="18" forecolor="#000000" uuid="52c38487-6707-44e6-ad25-d10fbb831381"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Ombro]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="b0e08e50-6630-4362-bf7c-76e07baabc9c"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="244" y="0" width="36" height="18" uuid="bee7635a-dc40-4c25-ad67-f650b167a153"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{antebraco}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="304" y="0" width="30" height="18" uuid="bcb67bfd-e2ab-4def-ad24-8eae45c4e796"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{torax}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="354" y="0" width="36" height="18" uuid="4cad66f5-77a8-46b5-85c2-b32028270c05"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{abdomen}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="418" y="0" width="33" height="18" uuid="4c73215b-208a-4b5c-a849-a9d8bd5a824a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pescoco}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="468" y="0" width="37" height="18" uuid="49e4ac1d-3ff5-42b1-9b9e-b5fa5d24bea2"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{coxa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="182" y="0" width="33" height="18" uuid="705567fe-3e99-4d7e-9d91-6962e8a788de"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cintura}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="513" y="0" width="25" height="18" uuid="5317b7d1-2b3d-4ac9-877d-6b1312df25ea"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ombro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="100" y="0" width="34" height="18" uuid="ce5842b6-e762-4a64-9bd5-18c07386470f"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{altura}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="145" y="0" width="24" height="18" uuid="95e37e77-c8a5-46af-9070-fe677f668d58"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peso}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="c4d0729a-2ebe-4bbc-925f-b6fe74e3a993"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="d8e397f9-e99f-4eb6-9e45-2763f7ba09dd"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="b807b313-ef0f-4eaa-926d-4bbbb96e732c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="862bc506-1ac7-4ea0-a2a7-a71c11bb347a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="1283f5d8-cb68-48d2-b848-5d6cb08d579e"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

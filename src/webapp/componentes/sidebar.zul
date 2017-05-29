@@ -1,0 +1,86 @@
+<zk>
+	<div id="sidebar" sclass="sidebar"
+		apply="br.com.proccaaae.web.ViewModel.SidebarComposer">
+		<!-- Shortcuts Button-->
+		<div class="shortcuts">
+			<!-- Display when expanded -->
+			<div class="shortcuts-expanded">
+				<button type="button" class="btn-success"
+					iconSclass="z-icon-signal" />
+				<button type="button" class="btn-info"
+					iconSclass="z-icon-pencil" />
+				<button type="button" class="btn-warning"
+					iconSclass="z-icon-group" />
+				<button type="button" class="btn-danger"
+					iconSclass="z-icon-cogs" tooltiptext="Configuração" />
+			</div>
+			<!-- Display when collapsed -->
+			<div class="shortcuts-collapsed">
+				<button type="button" class="btn-success" />
+				<button type="button" class="btn-info" />
+				<button type="button" class="btn-warning" />
+				<button type="button" class="btn-danger" />
+			</div>
+		</div>
+		<!-- Navigation List -->
+		<navbar id="navbar" sclass="nav-list" orient="vertical">
+			<navitem label="Página Inicial"
+				iconSclass="z-icon-dashboard" selected="true">
+
+				<attribute name="onClick"><![CDATA[
+	Executions.sendRedirect("/teste/initial_page_master.zul");
+]]></attribute>
+			</navitem>
+			<nav label="Graduação">
+				<navitem label="Cadastrar"
+					iconSclass="z-icon-angle-double-right" />
+				<navitem label="Pesquisar"
+					iconSclass="z-icon-angle-double-right" />
+			</nav>
+			<nav label="Posto">
+				<navitem label="Cadastrar"
+					iconSclass="z-icon-angle-double-right">
+					<attribute name="onClick"><![CDATA[
+	Executions.sendRedirect("/teste/posto/cadastrar.zul");
+]]></attribute>
+				</navitem>
+				<navitem label="Pesquisar"
+					iconSclass="z-icon-angle-double-right">
+					<attribute name="onClick"><![CDATA[
+	Executions.sendRedirect("/teste/posto/pesquisar.zul");
+]]></attribute>
+				</navitem>
+			</nav>
+			<nav label="Usuário">
+				<navitem label="Cadastrar"
+					iconSclass="z-icon-angle-double-right" />
+				<navitem label="Pesquisar"
+					iconSclass="z-icon-angle-double-right" />
+			</nav>
+			<nav label="Recurso">
+				<navitem label="Cadastrar"
+					iconSclass="z-icon-angle-double-right" />
+				<navitem label="Pesquisar"
+					iconSclass="z-icon-angle-double-right" />
+			</nav>
+			<nav label="Solicitações">
+				<navitem label="Cadastrar"
+					iconSclass="z-icon-angle-double-right" />
+				<navitem label="Pesquisar"
+					iconSclass="z-icon-angle-double-right" />
+			</nav>
+			<navitem label="Relatórios" iconSclass="z-icon-file"
+				selected="false" />
+		</navbar>
+		<!-- Toggler -->
+		<div sclass="sidebar-collapse">
+			<a id="toggler" iconSclass="z-icon-angle-double-left" />
+		</div>
+		<!-- Tooptip for Calender Navitem -->
+		<popup id="calpp" zclass="tooltip"
+			sclass="right tooltip-error cal">
+			<span zclass="tooltip-arrow" />
+			<label zclass="tooltip-inner" value="2 Important Event" />
+		</popup>
+	</div>
+</zk>

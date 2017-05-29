@@ -1,0 +1,53 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/componentes/templates/calendario/template.zul"?>
+<?page title="Reservas Clube Mach 1" contentType="text/html;charset=UTF-8"?>
+<?link href="/bootstrap-calendar-master/css/calendar.css" rel="stylesheet" type="text/css"?>
+<?link rel="stylesheet" href="/bootstrap-calendar-master/components/bootstrap3/css/bootstrap.css" type="text/css"?>
+<?link rel="stylesheet" href="/bootstrap-calendar-master/components/bootstrap3/css/bootstrap-responsive.css" type="text/css"?>
+<?link href="/css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href="/less/index.css.dsp" rel="stylesheet" type="text/css"?>
+
+<zk>
+	<style src="/widgets/zk_calendar/zk_calendar/style.css" />
+
+	<!-- Calendars Body -->
+	<div id="calendar"
+		apply="br.ueg.unucet.gymsys.View.zk_calendar.CalendarController">
+		<!-- Control Menu -->
+		<hlayout sclass="z-valign-middle">
+			<button class="btn btn-danger" id="today" label="Hoje" />
+			<button class="btn btn-default" id="prev"
+				image="/widgets/zk_calendar/zk_calendar/img/arrow-180.png" />
+			<button class="btn btn-default" id="next"
+				image="/widgets/zk_calendar/zk_calendar/img/arrow.png" />
+			<separator width="50px" />
+			<button class="btn btn-danger" id="pageDay" label="Dia"
+				width="55px" />
+			<button class="btn btn-danger" id="pageWeek" label="Semana"
+				width="65px" />
+			<button class="btn btn-danger" id="pageMonth" label="Mês"
+				width="55px" />
+			<separator width="50px" />
+
+
+			<button class="btn btn-info" id="btPesquisarTodos"
+				label="pesquisar todos" />
+
+
+
+		</hlayout>
+		<separator bar="true" height="20px" />
+
+		<calendars id="calendars" firstDayOfWeek="Sunday" height="600px"
+			timeZone="Main=GMT+0" mold="month" />
+	</div>
+
+	<!-- Create/Update Event Popup -->
+	<include id="iReserv" src="/paginas/visita/visitas.zul" />
+
+	<!-- Server+Client Fusion - Mouse Scroll Handling -->
+	<script type="text/javascript"
+		src="/js/lib/jquery.mousewheel.min.js" />
+	<script type="text/javascript"
+		src="/widgets/zk_calendar/zk_calendar/scroll.js" />
+
+</zk>

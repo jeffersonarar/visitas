@@ -1,0 +1,72 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/templateFree.zul"?>
+<zk>
+	<window self="@define(content)"
+	 apply="org.zkoss.bind.BindComposer"
+    	viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.LoginViewModel')"
+		>
+   <div align="center">
+    	<zk xmlns:h="xhtml" xmlns:zk="zk">
+			<html>
+			  <head>
+			  </head>
+			  <body>
+			  <div>
+			   	<h2><span class="label label-primary">Nossa Equipe</span></h2>
+			 	<br/>
+			 	<p>Mais que um grupo, uma <span class="label label-primary">Família</span></p>
+			 	<br/>
+			 	<br/>
+			  </div>
+			  <div>
+			  	<br/>
+			  	 <img src="../../com.gymsys/img/Jefferson.jpg" class="img-circle" alt="..."></img>
+			  	<br/>
+			  	<br/>
+			  	<h3><span class="label label-info">Jefferson Souza e Silva</span></h3>
+			  	<br/>
+			  	<p>O responsável pela família e Gerente de Projeto</p>
+			  </div>  
+			  <div>
+			  	<br/>
+			  	 <img src="../../com.gymsys/img/thalisa.png" class="img-circle" alt="..."></img>
+			  	<br/>
+			  	<br/>
+			  	<h3><span class="label label-info">Thalisa Silva de Sotomayor Gonzales</span></h3>
+			  	<br/>
+			  	<p>Analista Senior do Projeto e quem realmente toma a decisão final do grupo.</p>
+			  </div>
+			  <div>
+			  	<br/>
+			  	 <img src="../../com.gymsys/img/Paulo.jpg" class="img-circle" alt="..."></img>
+			  	<br/>
+			  	<br/>
+			  	<h3><span class="label label-info">Paulo Lôbo Neto</span></h3>
+			  	<br/>
+			  	<p>Programador e DBA</p>
+			  </div>  
+			  <div>
+			  	<br/>
+			  	 <img src="../../com.gymsys/img/Manoel.png" class="img-circle" alt="..."></img>
+			  	<br/>
+			  	<br/>
+			  	<h3><span class="label label-info">Manoel Pedro Silva Neto</span></h3>
+			  	<br/>
+			  	<p>Analista junior e Gerente de marketing e de relacionamento.</p>
+			  </div>   
+			  <div>
+			  	<br/>
+			  	 <img src="../../com.gymsys/img/nilo.png" class="img-circle" alt="..."></img>
+			  	<br/>
+			  	<br/>
+			  	<h3><span class="label label-info">Danillo Rodrigues Gonçalves</span></h3>
+			  	<br/>
+			  	<p>Estagiário, apenas documentou algumas atas...</p>
+			  	<br/>
+			  	<p>Alguém que sonhava em mudar o mundo... Mas não se preocupe já mudou de ideia.</p>
+			  </div>        
+			  </body>
+			</html>
+		</zk>
+	</div>
+	</window>
+</zk>

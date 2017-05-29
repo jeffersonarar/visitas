@@ -1,0 +1,74 @@
+CREATE TABLE estado
+(
+  idestado serial NOT NULL,
+  sigla character(2) NOT NULL,
+  descricao character varying(150),
+  nome character varying(45),
+  ativo boolean,
+  CONSTRAINT estado_pkey PRIMARY KEY (idestado)
+);
+
+CREATE TABLE municipio
+(
+  idmunicipio serial NOT NULL,
+  nome character varying(45) NOT NULL,
+  idestado integer NOT NULL,
+  descricao character varying(150),
+  ativo boolean,
+  CONSTRAINT id_pk PRIMARY KEY (idmunicipio),
+  CONSTRAINT fk_tb_municipio_tb_estado1 FOREIGN KEY (idestado)
+      REFERENCES estado (idestado) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+CREATE TABLE funcao
+(
+  idfuncao serial NOT NULL,
+  nome character varying(100),
+  descricao character varying(400),
+  ativo boolean,
+  cor character varying(30),
+  CONSTRAINT funcao_pkey PRIMARY KEY (idfuncao)
+);
+
+CREATE TABLE usuario
+(
+  idusuario serial NOT NULL,
+  nome character varying(50),
+  senha character varying(300),
+  tipousuario integer,
+  ativo boolean,
+  CONSTRAINT usuario_pkey PRIMARY KEY (idusuario)
+);
+
+CREATE TABLE visita
+(
+  idvisita serial NOT NULL,
+  idfuncao integer,
+  idmunicipio integer,
+  agendadopor character varying(100),
+  email character varying(100),
+  contato character varying(50),
+  data_inicio timestamp without time zone,
+  data_fim timestamp without time zone,
+  data_cadastro timestamp without time zone,
+  bairro character varying(100),
+  empresa character varying(100),
+  endereco character varying(100),
+  telefone character varying(20),
+  celular character varying(20),
+  numero integer,
+  quadra character varying(40),
+  lote character varying(40),
+  ativo boolean,
+  confirmado boolean,
+  hora_inicio character varying(10),
+  hora_fim character varying(10),
+  motivo character varying(500),
+  CONSTRAINT visita_pkey PRIMARY KEY (idvisita),
+  CONSTRAINT visita_idfuncao_fkey FOREIGN KEY (idfuncao)
+      REFERENCES funcao (idfuncao) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT visita_idmunicipio_fkey FOREIGN KEY (idmunicipio)
+      REFERENCES municipio (idmunicipio) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);

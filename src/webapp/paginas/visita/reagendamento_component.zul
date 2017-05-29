@@ -1,0 +1,81 @@
+<zk>
+	<window id="idWindowAlterar" self="@define(content)" border="normal"
+		width="750px" sclass="mymodal" minimizable="false" mode="modal"
+		maximizable="false" closable="true" position="center,center"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.VisitaUpdateViewModel')"
+		validationMessages="@id('vmsgs')"
+		form="@id('fx') @load(vm.entity) @save(vm.entity, before='salvar')">
+		<div xmlns:n="native">
+
+			<div class="col-sm-5">
+
+				<div class="col-sm-8">
+
+					<n:h4>
+						<label style="color: red" value="*" />
+						Data inicio:
+					</n:h4>
+					<datebox id="dataInicio" width="100%"
+						 value="@bind(vm.entity.data_inicio)" tabindex="1" />
+				</div>
+				<div class="col-sm-4">
+
+					<n:h4>Hora:</n:h4>
+					<listbox model="@load(vm.horasList)" tabindex="2"
+						width="100px" class="form-control" mold="select"
+						selectedItem="@save(vm.horasinicioselecionada)">
+						<template name="model">
+							<listitem label="@load(each.descricao)" />
+						</template>
+
+					</listbox>
+
+				</div>
+
+
+
+
+
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-6">
+				<n:h4>Agendado por:</n:h4>
+				<listbox model="@load(vm.agendadoporList)" tabindex="3"
+					width="100%" class="form-control" mold="select"
+					selectedItem="@save(vm.agendadoporSelecionada)">
+					<template name="model">
+						<listitem label="@load(each.descricao)" />
+					</template>
+
+				</listbox>
+
+
+				<n:h4>Motivo cancelamento:</n:h4>
+
+				<textbox value="@bind(vm.entity.motivo)"
+					constraint="no empty" class="form-control" tabindex="12" />
+
+
+				<separator></separator>
+
+				<div class="col-sm-6">
+					<space />
+					<button label="Salvar" sclass="btn-primary"
+						onClick="@command('updateReagendamento')" width="100px" height="30px" />
+
+
+				</div>
+
+				<div class="col-sm-6">
+
+
+					<button label="Cancelar" sclass="btn-primary"
+						onClick="@command('fecharWin')" width="100px" height="30px" />
+				</div>
+			</div>
+
+		</div>
+
+	</window>
+</zk>

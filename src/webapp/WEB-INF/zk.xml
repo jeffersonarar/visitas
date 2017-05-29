@@ -1,0 +1,13 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+
+<zk>
+	<!-- [Optional]
+	Uncomment if you want to defines the application's name 
+	
+	<preference>
+		<name>org.zkoss.zk.ui.WebApp.name</name>
+		<value>reservacb1</value>
+	</preference>
+	-->
+	
+</zk>

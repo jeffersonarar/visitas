@@ -1,0 +1,11 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/templateFree.zul"?>
+<zk>
+	<window self="@define(content)"
+	 apply="org.zkoss.bind.BindComposer"
+    	viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.LoginViewModel')"
+		>
+    <div align="center">
+    	<label sclass="header-text">Quem Somos...</label>
+	</div>
+	</window>
+</zk>

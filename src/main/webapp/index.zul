@@ -1,0 +1,29 @@
+
+<zk>
+	
+   <style src="css/login.css"  />
+	<div width="100%" height="100%"  apply="org.zkoss.bind.BindComposer"
+		style="background-color:#323B55 margin-top:50px;" xmlns:h="native" viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.LoginViewModel')">
+				<h:div class="container" align="" id="container" 
+		self="@define(content)" >
+					<h:section id="content">
+						<h:form id="login" xmlns:n="native" >	
+							<h:h1>Sistema de Visitas</h:h1>
+							<h:div>
+								<textbox
+									placeholder="usuario" sclass="text" value="@bind(vm.nome)" id="account" />
+							</h:div>
+							<h:div>
+								<textbox type="password" placeholder="********"  value="@bind(vm.senha)" id="password" />
+							</h:div>
+							<h:div>
+								<button label="Login" onClick="@command('logar')" />
+							</h:div>
+					
+						</h:form>
+					</h:section>
+				</h:div>
+	</div>
+
+
+</zk>

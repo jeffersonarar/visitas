@@ -1,0 +1,29 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/templateFree.zul"?>
+<zk>
+	<div>
+	<vlayout sclass="zcenterd42">
+	<window self="@define(content)"
+	 apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.LoginViewModel')"
+    closable="true"  title="Logar no sistema" border="normal" width="50%"
+    action="show: slideDown;hide: slideUp"
+		validationMessages="@id('vmsgs')"
+        form="@id('fx') @load(vm.entity) @save(vm.entity, before='salvar')"  sclass="zcenterd42">      
+       <grid sclass="loginGrid">
+			<columns>
+				<column hflex="1" />
+				<column hflex="2" />
+			</columns>
+			<rows>
+				<row>User Name : <textbox id="name" value="@bind(vm.nome)" /></row>
+				<row>Password : <textbox id="pwd" type="password" value="@bind(vm.senha)"/></row>
+				<row><cell sclass="loginCtl" colspan="2"><vlayout>
+					<button label="Logar" onClick="@command('logar')" width="100px"/>
+					<label id="mesg" />
+				</vlayout></cell></row>
+			</rows>
+		</grid>
+	</window>
+	</vlayout>
+	</div>
+</zk>

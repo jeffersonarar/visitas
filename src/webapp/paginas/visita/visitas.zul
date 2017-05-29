@@ -1,0 +1,170 @@
+<div self="@define(content)" align="center"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.VisitaViewModel')"
+	validationMessages="@id('vmsgs')"
+	form="@id('fx') @load(vm.entity) @save(vm.entity, before='salvar')">
+
+	<window title="Formulário de visitas" border="normal" width="750px"
+		closable="true"
+		form="@id('fx') @load(vm.entity) @save(vm.entity, before='ok') @validator(vm.dateValidator)"
+		mode="popup" visible="@load(vm.visible)" position="center,center">
+		<div xmlns:n="native">
+
+			<div class="col-sm-5">
+
+				<div class="col-sm-8">
+
+					<n:h4>
+						<label style="color: red" value="*" />
+						Data inicio:
+					</n:h4>
+					<datebox id="dataInicio" width="100%"
+						value="@bind(vm.entity.data_inicio)" tabindex="1" />
+				</div>
+				<div class="col-sm-4">
+
+					<n:h4>Hora:</n:h4>
+					<listbox model="@load(vm.horasList)" tabindex="2"
+						width="100px" class="form-control" mold="select"
+						selectedItem="@save(vm.horasinicioselecionada)">
+						<template name="model">
+							<listitem label="@load(each.descricao)" />
+						</template>
+
+					</listbox>
+
+				</div>
+
+				<n:h4>
+					<label style="color: red" value="*" />
+					Empresa:
+				</n:h4>
+
+				<textbox value="@bind(vm.entity.empresa)" width="100%"
+					class="form-control" tabindex="8" />
+
+				<div class="col-sm-4">
+					<n:h4>Estado:</n:h4>
+					<combobox readonly="true" width="100%"
+						onChange="@command('getMunicipioList')"
+						model="@load(vm.estadoList)"
+						selectedItem="@save(vm.estadoSelecionada)">
+						<template name="model">
+							<comboitem label="@load(each.sigla)" />
+						</template>
+					</combobox>
+				</div>
+				<div class="col-sm-8">
+
+					<n:h4>Cidade:</n:h4>
+					<combobox model="@load(vm.municipioList)"
+						width="100%" selectedItem="@save(vm.municipioSelecionada)">
+						<template name="model">
+							<comboitem label="@load(each.nome)" />
+						</template>
+					</combobox>
+				</div>
+				<space />
+				<n:h4>Bairro:</n:h4>
+				<textbox id="fldBairro" value="@bind(vm.entity.bairro)" width="100%"
+					class="form-control" focus="false" style="color:black !important;" />
+
+
+				<n:h4>
+					<label style="color: red" value="*" />
+					Endereço:
+				</n:h4>
+
+				<textbox value="@bind(vm.entity.endereco)" width="100%"
+					class="form-control" tabindex="8" />
+
+				<div class="col-sm-4">
+					<n:h4>N°:</n:h4>
+					<intbox value="@bind(vm.entity.numero)"
+						width="100%" class="form-control" tabindex="9" />
+				</div>
+
+				<div class="col-sm-4">
+					<n:h4>
+						<label style="color: red" value="*" />
+						Qd:
+					</n:h4>
+					<textbox value="@bind(vm.entity.quadra)"
+						width="100%" class="form-control" tabindex="8" />
+				</div>
+				<div class="col-sm-4">
+					<n:h4>
+						<label style="color: red" value="*" />
+						Lote:
+					</n:h4>
+					<textbox value="@bind(vm.entity.lote)" width="100%" 
+						class="form-control" tabindex="8" />
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-6">
+							<n:h4>Agendado por:</n:h4>
+				<listbox model="@load(vm.agendadoporList)" tabindex="3" 
+					width="100%" class="form-control" mold="select"
+					selectedItem="@save(vm.agendadoporSelecionada)">
+					<template name="model">
+						<listitem label="@load(each.descricao)" />
+					</template>
+
+				</listbox>
+				<n:h4>
+					<label style="color: red" value="*" />
+					Email:
+				</n:h4>
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">@</span>
+					<textbox value="@bind(vm.entity.email)" width="100%"
+						placeholder="email" class="form-control" tabindex="10" />
+
+				</div>
+
+				<n:h4>Contato:</n:h4>
+
+				<textbox value="@bind(vm.entity.contato)" width="100%"
+					class="form-control" tabindex="11" />
+
+				<n:h4>Celular:</n:h4>
+
+				<textbox value="@bind(vm.entity.celular)" width="100%"
+					class="form-control" tabindex="11" />
+
+
+				<n:h4>Telefone:</n:h4>
+
+				<textbox value="@bind(vm.entity.telefone)" width="100%"
+					class="form-control" tabindex="11" />
+
+				<n:h4>
+					<label style="color: red" value="*" />
+					Função:
+				</n:h4>
+				<div class="input-group input-group-lg">
+					<combobox onChange="" tabindex="4" width="100%"
+						constraint="no empty: Campo obrigatório"
+						model="@load(vm.funcaoList)"
+						selectedItem="@save(vm.funcaoSelecionado)">
+						<template name="model">
+							<comboitem label="@load(each.nome)" />
+						</template>
+					</combobox>
+					  <space/>
+				</div>
+
+  <space/>
+				<div class="col-sm-6">
+				  <space/>
+					<button label="Salvar" sclass="btn-primary"
+						onClick="@command('salvar')" width="100px" height="30px" />
+
+				</div>
+			</div>
+
+		</div>
+
+	</window>
+</div>

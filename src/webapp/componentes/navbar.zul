@@ -1,0 +1,36 @@
+<zk>
+	<div sclass="navbar" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('br.ueg.unucet.gymsys.View.NavbarViewModel')">
+		<!-- Brand Logo -->
+		<a label="Visitas" sclass="pull-left navbar-brand"
+			/> <!-- image="/imagens/logo.png"   -->
+
+		<!-- Navbar -->
+		<hlayout sclass="nav-user pull-right" spacing="0">
+
+			
+
+			<!-- User menu -->
+			<menubar sclass="user-menu grey">
+			
+				<menu tooltiptext="Avatar"
+					label="Configs"
+					if="${not sessionScope.userCredential.anonymous}">
+					<menupopup>
+						<menuitem label="Settings"
+							iconSclass="z-icon-cog" />
+						<menuitem label="Profile"
+							iconSclass="z-icon-user" />
+						<menuseparator />
+						<menuitem id="logout" label="Logout"
+							onClick="@command('doLogout')" iconSclass="z-icon-eject" />
+					</menupopup>
+				</menu>
+			</menubar>
+		</hlayout>
+
+
+		<!-- Popups of navbar -->
+
+	</div>
+</zk>
